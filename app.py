@@ -1,7 +1,7 @@
 import gradio as gr
 
 def greet(name):
-    return "Hello " + name + "!!"
+    return "OK"
 
-iface = gr.Interface(fn=greet, inputs="text", outputs="text")
+iface = gr.Interface(fn=greet, inputs="video", outputs="video")
 iface.launch()
