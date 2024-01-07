@@ -18,4 +18,4 @@ with gr.Blocks() as demo:
     btn = gr.Button("Run")
     btn.click(greet, input, output)
 
-    #iface.launch()
+demo.launch()
