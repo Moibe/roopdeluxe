@@ -14,10 +14,10 @@ def greet(input_video):
 with gr.Blocks() as demo:
     print("Imprimiendo en Arranque...")
     with gr.Row():
-        input = gr.Video()
+        input1 = gr.Video()
         output = gr.Video()
     btn = gr.Button("Run")
-    btn.click(greet, input, output)
+    btn.click(greet, input1, output)
 
     #consola = gr.Textbox()
     #demo.load(carga_consola, None, consola)
