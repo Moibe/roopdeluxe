@@ -12,17 +12,17 @@ def greet(input1, input2):
 #iface = gr.Interface(greet, gr.Video(height=200, width=200), "video")
 #gr.show()
 
-with gr.Blocks() as demo:
-    print("Imprimiendo en Arranque...")
-    with gr.Row():
-        input1 = gr.Image()
-        input2 = gr.Image()
-        output = gr.Image()
-    btn = gr.Button("Run")
-    btn.click(greet, inputs=[gr.Image(), gr.Image()], outputs="image")
+# with gr.Blocks() as demo:
+#     print("Imprimiendo en Arranque...")
+#     with gr.Row():
+#         input1 = gr.Image()
+#         input2 = gr.Image()
+#         output = gr.Image()
+#     btn = gr.Button("Run")
+#     btn.click(greet, inputs=[gr.Image(), gr.Image()], outputs="image")
 
-    #consola = gr.Textbox()
-    #demo.load(carga_consola, None, consola)
+demo = gr.Interface(
+fn=greet, inputs=[gr.Image(), gr.Image()], outputs="image"
+)
 
-#demo.queue().launch()
 demo.launch()
