@@ -2,6 +2,7 @@ import gradio as gr
 
 def greet(input_video):
     print("Imprimiendo en Consola")
+    print("Ésto es input_video: ", input_video)
     return input_video
 
 #def carga_consola():
@@ -21,4 +22,5 @@ with gr.Blocks() as demo:
     #consola = gr.Textbox()
     #demo.load(carga_consola, None, consola)
 
+#demo.queue().launch()
 demo.launch()
