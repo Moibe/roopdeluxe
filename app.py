@@ -17,7 +17,7 @@ with gr.Blocks() as demo:
         input = gr.Textbox()
         output = gr.Textbox()
     btn = gr.Button("Run")
-    consola = gr.Textbox()
     btn.click(greet, input, output)
-
+    consola = gr.Textbox()
+    
 demo.launch()
