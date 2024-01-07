@@ -13,36 +13,31 @@ def greet(input1, input2):
     #Para los videos es directo. 
     #Y al parecer PIL ya lo tiene instalado.
 
-    source_path = "input.jpg"
-    target_path = "target.jpg"
+    # source_path = "input.jpg"
+    # target_path = "target.jpg"
 
-    source_image = Image.fromarray(input1)
-    print("Esto es source_image: ", source_image)
-    source_image.save(source_path)
-    target_image = Image.fromarray(input2)
-    print("Esto es target_image: ", target_image)
-    target_image.save(target_path)
+    # source_image = Image.fromarray(input1)
+    # print("Esto es source_image: ", source_image)
+    # source_image.save(source_path)
+    # target_image = Image.fromarray(input2)
+    # print("Esto es target_image: ", target_image)
+    # target_image.save(target_path)
 
-    print("source_path: ", source_path)
-    print("target_path: ", target_path)
+    # print("source_path: ", source_path)
+    # print("target_path: ", target_path)
 
 
-    return target_path
+    return input2
 
-#iface = gr.Interface(greet, gr.Video(height=200, width=200), "video")
-#gr.show()
+#Así para imagenes
+# demo = gr.Interface(
+# fn=greet, inputs=[gr.Image(), gr.Image()], outputs="image"
+# )
 
-# with gr.Blocks() as demo:
-#     print("Imprimiendo en Arranque...")
-#     with gr.Row():
-#         input1 = gr.Image()
-#         input2 = gr.Image()
-#         output = gr.Image()
-#     btn = gr.Button("Run")
-#     btn.click(greet, inputs=[gr.Image(), gr.Image()], outputs="image")
-
+#Así para video
 demo = gr.Interface(
-fn=greet, inputs=[gr.Image(), gr.Image()], outputs="image"
+fn=greet, inputs=[gr.Video(), gr.Video()], outputs="video"
 )
+
 
 demo.launch()
