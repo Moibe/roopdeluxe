@@ -12,12 +12,12 @@ def carga_consola():
 
 with gr.Blocks() as demo:
     with gr.Row():
-        input = gr.Textbox()
-        output = gr.Textbox()
+        input = gr.Video()
+        output = gr.Video()
     btn = gr.Button("Run")
     btn.click(greet, input, output)
 
-    consola = gr.Textbox()
-    demo.load(carga_consola, None, consola)
+    #consola = gr.Textbox()
+    #demo.load(carga_consola, None, consola)
 
 demo.queue().launch()
