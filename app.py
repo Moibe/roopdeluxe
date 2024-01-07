@@ -8,6 +8,14 @@ def greet(input_video):
     #video_origen.save("video_guardado.mp4")
     return input_video
 
-iface = gr.Interface(greet, gr.Video(height=200, width=200), "video")
+#iface = gr.Interface(greet, gr.Video(height=200, width=200), "video")
 #gr.show()
-iface.launch()
+
+with gr.Blocks() as demo:
+    with gr.Row():
+        input = gr.Textbox()
+        output = gr.Textbox()
+    btn = gr.Button("Run")
+    btn.click(greet, input, output)
+
+    #iface.launch()
