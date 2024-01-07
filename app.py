@@ -21,4 +21,4 @@ with gr.Blocks() as demo:
     consola = gr.Textbox()
     demo.load(carga_consola, None, consola)
 
-demo.launch()
+demo.queue().launch()
