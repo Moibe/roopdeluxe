@@ -6,6 +6,7 @@ def greet(input_video):
     #print(video_origen)
     # Guardar el video en un archivo
     #video_origen.save("video_guardado.mp4")
+    consola.update("Hola mundo")
     return input_video
 
 #iface = gr.Interface(greet, gr.Video(height=200, width=200), "video")
