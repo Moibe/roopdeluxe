@@ -28,7 +28,7 @@ def greet(input1, input2):
     # print("source_path: ", source_path)
     # print("target_path: ", target_path)
 
-    command = "python hola.py"
+    command = "python hola.py -t D:/Esyle-Prod/fotos/irina.jpg"
     print(command)
     time.sleep(1)
     proc = os.popen(command)
