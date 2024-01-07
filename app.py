@@ -1,9 +1,10 @@
 import gradio as gr
 
-def greet(input_video):
+def greet(input1, input2):
     print("Imprimiendo en Consola")
-    print("Ésto es input_video: ", input_video)
-    return input_video
+    print("Ésto es input1: ", input1)
+    print("Ésto es input2: ", input2)
+    return input1
 
 #def carga_consola():
 #    return "Hola Mundo"
@@ -14,10 +15,11 @@ def greet(input_video):
 with gr.Blocks() as demo:
     print("Imprimiendo en Arranque...")
     with gr.Row():
-        input1 = gr.Video()
-        output = gr.Video()
+        input1 = gr.Image()
+        input2 = gr.Image()
+        output = gr.Image()
     btn = gr.Button("Run")
-    btn.click(greet, input1, output)
+    btn.click(greet, inputs=[gr.Image(), gr.Image()], outputs="image")
 
     #consola = gr.Textbox()
     #demo.load(carga_consola, None, consola)
