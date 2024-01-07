@@ -1,6 +1,6 @@
 ---
 title: Demo
-emoji: 🦀
+emoji: 📹
 colorFrom: blue
 colorTo: yellow
 sdk: gradio
