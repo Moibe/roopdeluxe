@@ -7,6 +7,7 @@ def greet(input_video):
     # Guardar el video en un archivo
     #video_origen.save("video_guardado.mp4")
     consola.value = "Hola mundo"
+    consola.update()
     return input_video
 
 #iface = gr.Interface(greet, gr.Video(height=200, width=200), "video")
@@ -19,5 +20,5 @@ with gr.Blocks() as demo:
     btn = gr.Button("Run")
     btn.click(greet, input, output)
     consola = gr.Textbox()
-    
+
 demo.launch()
