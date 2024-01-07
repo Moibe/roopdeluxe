@@ -1,12 +1,11 @@
 import gradio as gr
 
 def greet(input_video):
-    
+    print("Imprimiendo en Consola")
     return input_video
 
 def carga_consola():
     return "Hola Mundo"
-
 
 #iface = gr.Interface(greet, gr.Video(height=200, width=200), "video")
 #gr.show()
