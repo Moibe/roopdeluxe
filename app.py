@@ -22,7 +22,7 @@ def greet(input1, input2):
 #     btn.click(greet, inputs=[gr.Image(), gr.Image()], outputs="image")
 
 demo = gr.Interface(
-fn=greet, inputs=[gr.Image(), gr.Image()], outputs="image"
+fn=greet, inputs=[gr.Video(), gr.Video()], outputs="video"
 )
 
 demo.launch()
