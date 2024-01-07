@@ -17,7 +17,7 @@ def greet(input1, input2):
     source_image.save(source_path)
     target_image = Image.fromarray(input2)
     print("Esto es target_image: ", target_image)
-    target_image.save(target_path)
+    #target_image.save(target_path)
 
     print("source_path: ", source_path)
     print("target_path: ", target_path)
