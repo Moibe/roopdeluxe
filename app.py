@@ -9,6 +9,10 @@ def greet(input1, input2):
     #Aquí voy a poner como lo maneja roop en hf.
     #https://huggingface.co/spaces/ezioruan/roop/blob/main/app.py
 
+    #Ésta es la forma correcta de guardar imagenes. 
+    #Para los videos es directo. 
+    #Y al parecer PIL ya lo tiene instalado.
+
     source_path = "input.jpg"
     target_path = "target.jpg"
 
@@ -17,16 +21,13 @@ def greet(input1, input2):
     source_image.save(source_path)
     target_image = Image.fromarray(input2)
     print("Esto es target_image: ", target_image)
-    #target_image.save(target_path)
+    target_image.save(target_path)
 
     print("source_path: ", source_path)
     print("target_path: ", target_path)
 
 
     return target_path
-
-#def carga_consola():
-#    return "Hola Mundo"
 
 #iface = gr.Interface(greet, gr.Video(height=200, width=200), "video")
 #gr.show()
