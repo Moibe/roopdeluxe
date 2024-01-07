@@ -13,15 +13,17 @@ def greet(input1, input2):
     target_path = "target.jpg"
 
     source_image = Image.fromarray(input1)
+    print("Esto es source_image: ", source_image)
     source_image.save(source_path)
     target_image = Image.fromarray(input2)
+    print("Esto es target_image: ", target_image)
     target_image.save(target_path)
 
     print("source_path: ", source_path)
     print("target_path: ", target_path)
 
 
-    return input1
+    return target_path
 
 #def carga_consola():
 #    return "Hola Mundo"
