@@ -1,5 +1,7 @@
 import gradio as gr
 from PIL import Image
+import time
+import os
 
 def greet(input1, input2):
     print("Imprimiendo en Consola")
@@ -25,6 +27,14 @@ def greet(input1, input2):
 
     # print("source_path: ", source_path)
     # print("target_path: ", target_path)
+
+    command = "python hola.py"
+    print(command)
+    time.sleep(1)
+    proc = os.popen(command)
+    output = proc.read()
+
+    print(output)
 
 
     return input2
