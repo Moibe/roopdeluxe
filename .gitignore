@@ -1,5 +1,11 @@
 inswapper_128.onnx
 
+.idea
+models
+temp
+__pycache__
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
