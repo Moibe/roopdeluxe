@@ -3,6 +3,7 @@ from PIL import Image
 import time
 import os
 
+#Greet es una función de ejemplo para usar.
 def greet(input1, input2):
     print("Imprimiendo en Consola")
     print("Ésto es input1: ", input1)
