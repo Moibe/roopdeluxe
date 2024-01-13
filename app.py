@@ -6,8 +6,8 @@ import os
 #Greet es una función de ejemplo para usar.
 def greet(input1, input2):
     print("Imprimiendo en Consola")
-    print("Ésto es input1: ", input1)
-    print("Ésto es input2: ", input2)
+    print("Ésto es el input1 al día de hoy: ", input1)
+    print("Ésto es el input2 al día de hoy: ", input2)
 
     #Aquí voy a poner como lo maneja roop en hf.
     #https://huggingface.co/spaces/ezioruan/roop/blob/main/app.py
