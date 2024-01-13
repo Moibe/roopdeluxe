@@ -1,15 +1,22 @@
 import argparse
 
-parser = argparse.ArgumentParser()
+def func_hola():
 
-parser.add_argument('-t', '--target_path', help='Ruta al archivo de destino')
+    parser = argparse.ArgumentParser()
 
-args = parser.parse_args()
+    parser.add_argument('-t', '--target_path', help='Ruta al archivo de destino')
 
-print("Esto es args: ", args)
+    args = parser.parse_args()
 
-print("Hola desde Hola.py el día de hoy:")
-print("El target path recibido es: ", args.target_path)
+    print("Esto es args: ", args)
 
-nueva_var = args.target_path
-print("La nueva var es: ", nueva_var)
+    print("Hola desde Hola.py el día de hoy:")
+    print("El target path recibido es: ", args.target_path)
+
+    nueva_var = args.target_path
+    print("La nueva var es: ", nueva_var)
+
+    return nueva_var
+
+if __name__ == "__main__":
+    func_hola()
