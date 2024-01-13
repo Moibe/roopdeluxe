@@ -16,18 +16,18 @@ def greet(input1, input2):
     #Para los videos es directo. 
     #Y al parecer PIL ya lo tiene instalado.
 
-    # source_path = "input.jpg"
-    # target_path = "target.jpg"
+    source_path = "input.jpg"
+    target_path = "target.jpg"
 
-    # source_image = Image.fromarray(input1)
-    # print("Esto es source_image: ", source_image)
-    # source_image.save(source_path)
-    # target_image = Image.fromarray(input2)
-    # print("Esto es target_image: ", target_image)
-    # target_image.save(target_path)
+    source_image = Image.fromarray(input1)
+    print("Esto es source_image: ", source_image)
+    source_image.save(source_path)
+    target_image = Image.fromarray(input2)
+    print("Esto es target_image: ", target_image)
+    target_image.save(target_path)
 
-    # print("source_path: ", source_path)
-    # print("target_path: ", target_path)
+    print("source_path: ", source_path)
+    print("target_path: ", target_path)
 
     command = "python hola.py -t D:/Esyle-Prod/fotos/irina.jpg"
     print(command)
@@ -41,14 +41,13 @@ def greet(input1, input2):
     return input2
 
 #Así para imagenes
-# demo = gr.Interface(
-# fn=greet, inputs=[gr.Image(), gr.Image()], outputs="image"
-# )
-
-#Así para video
 demo = gr.Interface(
-fn=greet, inputs=[gr.Video(), gr.Video()], outputs="video"
+fn=greet, inputs=[gr.Image(), gr.Image()], outputs="image"
 )
 
+#Así para video
+# demo = gr.Interface(
+# fn=greet, inputs=[gr.Video(), gr.Video()], outputs="video"
+# )
 
 demo.launch()
