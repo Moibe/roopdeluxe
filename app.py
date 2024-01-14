@@ -2,6 +2,7 @@ import gradio as gr
 from PIL import Image
 import time
 import os
+import pathlib
 
 #Greet es una función de ejemplo para usar.
 def greet(input1, input2):
@@ -18,6 +19,7 @@ def greet(input1, input2):
 
     source_path = "input.jpg"
     target_path = "target.jpg"
+    result_path = "result.jpg"
 
     source_image = Image.fromarray(input1)
     print("Esto es source_image: ", source_image)
@@ -29,16 +31,25 @@ def greet(input1, input2):
     print("source_path: ", source_path)
     print("target_path: ", target_path)
 
-    command = "python hola.py -t" + source_path
+    source = source_path
+    target = target_path
+    output = result_path
+
+    #command =  "adios.py"
+    command = f"python run.py -s {source}  -t {target} -o {output} --frame-processor face_swapper"
     print(command)
     time.sleep(1)
     proc = os.popen(command)
     output = proc.read()
 
+    print("Estoy imprimiendo el OUTPUT:")
+    time.sleep(10)
     print(output)
+    print("Eso fue el output...")
 
-
-    return input2
+    path = pathlib.Path("result.jpg")
+    
+    return path
 
 #Así para imagenes
 demo = gr.Interface(
