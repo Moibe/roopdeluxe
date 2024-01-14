@@ -18,15 +18,20 @@ def greet(input1, input2):
     #Y al parecer PIL ya lo tiene instalado.
 
     source_path = "input.jpg"
-    target_path = "target.jpg"
-    result_path = "result.jpg"
+    target_path = "target.mp4"
+    result_path = "result.mp4"
 
+    #Para Imagenes
     source_image = Image.fromarray(input1)
     print("Esto es source_image: ", source_image)
     source_image.save(source_path)
-    target_image = Image.fromarray(input2)
-    print("Esto es target_image: ", target_image)
-    target_image.save(target_path)
+    # target_image = Image.fromarray(input2)
+    # print("Esto es target_image: ", target_image)
+    # target_image.save(target_path)
+
+    #Para Video
+    #source_path = input1
+    target_path = input2
 
     print("source_path: ", source_path)
     print("target_path: ", target_path)
@@ -43,22 +48,25 @@ def greet(input1, input2):
     output = proc.read()
 
     print("Estoy imprimiendo el OUTPUT:")
-    time.sleep(10)
+    time.sleep(3)
     print(output)
     print("Eso fue el output...")
 
+    #Para imagen
     path = pathlib.Path("result.jpg")
+    #Para video
+    path = pathlib.Path("result.mp4")
     
     return path
 
 #Así para imagenes
-demo = gr.Interface(
-fn=greet, inputs=[gr.Image(), gr.Image()], outputs="image"
-)
+# demo = gr.Interface(
+# fn=greet, inputs=[gr.Image(), gr.Image()], outputs="image"
+# )
 
 #Así para video
-# demo = gr.Interface(
-# fn=greet, inputs=[gr.Video(), gr.Video()], outputs="video"
-# )
+demo = gr.Interface(
+fn=greet, inputs=[gr.Image(), gr.Video()], outputs="video"
+)
 
 demo.launch()
