@@ -79,6 +79,11 @@ def greet(input1, input2):
     print(output)
     print("Terminó la impresión del output...")
 
+    print("Ahora estamos imprimiendo las rutas para ver si apareció una nueva:")
+    files = os.listdir(path_bueno)
+    print("Estos son los files que hay:")
+    print(files)
+
     if modo == "video":
         #Para video
         path = pathlib.Path("result.mp4")
