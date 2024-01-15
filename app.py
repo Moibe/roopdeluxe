@@ -4,69 +4,95 @@ import time
 import os
 import pathlib
 
-#Greet es una función de ejemplo para usar.
 def greet(input1, input2):
-    print("Imprimiendo en Consola")
-    print("Ésto es el input1 al día de hoy: ", input1)
-    print("Ésto es el input2 al día de hoy: ", input2)
 
-    #Aquí voy a poner como lo maneja roop en hf.
-    #https://huggingface.co/spaces/ezioruan/roop/blob/main/app.py
+    modo = "video"
+    print("Inicio: Estamos en modo ", modo)
 
-    #Ésta es la forma correcta de guardar imagenes. 
-    #Para los videos es directo. 
-    #Y al parecer PIL ya lo tiene instalado.
+    print("Input1:")
+    print(input1)
+    print("Input2:")
+    print(input2)
 
-    source_path = "input.jpg"
-    target_path = "target.mp4"
-    result_path = "result.mp4"
+    path_video = input2
+    path_parts = path_video.split("\\")
+    # Imprimimos todos los segmentos EXCEPTO el último
+      # Obtenemos todos los segmentos de la dirección separados por "\"
+    path_bueno = "\\".join(path_parts[0:len(path_parts) - 2])
 
-    #Para Imagenes
+    print("Path bueno:")
+    print(path_bueno)
+
+    files = os.listdir(path_bueno)
+    print("Estos son los files que hay:")
+    print(files)
+
+    time.sleep(10)
+
+    ext_imagen = "png"
+    ext_video = "mp4"
+
+    #Selector de modo.
+    if modo == "video": 
+        print("Se asigno la extensión de video:", ext_video)
+        extension = ext_video
+    else:
+        print("Se asigno la extensión de video:", ext_video)
+        extension = ext_imagen
+
+    #El source siempre es una imagen.
+    source_path = "source.png"
+    target_path = "target." + extension
+    result_path = "result." + extension
+
+    #La primera siempre será una imagen, por eso no entra en el modo selector.
     source_image = Image.fromarray(input1)
     print("Esto es source_image: ", source_image)
     source_image.save(source_path)
-    # target_image = Image.fromarray(input2)
-    # print("Esto es target_image: ", target_image)
-    # target_image.save(target_path)
+        
+    #Aquí trabajaremos solo el target.
+    if modo == "video":
+        #Para Video
+        target_path = input2
+    else:
+        #Es decir si es modo imagen
+        #Para Imagenes
+        target_image = Image.fromarray(input2)
+        print("Esto es target_image: ", target_image)
+        target_image.save(target_path)
 
-    #Para Video
-    #source_path = input1
-    target_path = input2
-
+    print("Después de los selectores de modo los paths quedaron así:")
     print("source_path: ", source_path)
     print("target_path: ", target_path)
 
-    source = source_path
-    target = target_path
-    output = result_path
-
-    #command =  "adios.py"
-    command = f"python run.py -s {source}  -t {target} -o {output} --frame-processor face_swapper"
+    command = f"python run.py -s {source_path}  -t {target_path} -o {result_path} --frame-processor face_swapper"
     print(command)
     time.sleep(1)
     proc = os.popen(command)
     output = proc.read()
 
-    print("Estoy imprimiendo el OUTPUT:")
-    time.sleep(3)
+    print("Output (resultado de la ejecución del código):")
+    time.sleep(2)
     print(output)
-    print("Eso fue el output...")
+    print("Terminó la impresión del output...")
 
-    #Para imagen
-    path = pathlib.Path("result.jpg")
-    #Para video
-    path = pathlib.Path("result.mp4")
-    
-    return path
-
+    if modo == "video":
+        #Para video
+        path = pathlib.Path("result.mp4")
+        return path, path
+    else:
+        #Para imagen
+        path = pathlib.Path("result.png")
+        return path, path
+     
 #Así para imagenes
 # demo = gr.Interface(
-# fn=greet, inputs=[gr.Image(), gr.Image()], outputs="image"
+# fn=greet, inputs=[gr.Image(), gr.Image()], outputs=[gr.Image(), gr.Image()]
 # )
 
 #Así para video
 demo = gr.Interface(
-fn=greet, inputs=[gr.Image(), gr.Video()], outputs="video"
+fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video(), gr.Video()]
 )
 
 demo.launch()

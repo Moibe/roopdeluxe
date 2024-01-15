@@ -1,8 +1,10 @@
-input.jpg
-result.jpg
+source.jpg
+source.png
 target.jpg
+target.png
+result.jpg
+result.png
 result.mp4
-
 
 inswapper_128.onnx
 
@@ -10,7 +12,6 @@ inswapper_128.onnx
 models
 temp
 __pycache__
-
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
