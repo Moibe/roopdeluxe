@@ -15,7 +15,10 @@ def greet(input1, input2):
     print(input2)
 
     path_video = input2
-    path_parts = path_video.split("\\")
+    #Para local.
+    #path_parts = path_video.split("\\")
+    #Para HuggingFace
+    path_parts = path_video.split("//")
     print("Imprimiendo path_parts: ", path_parts)
     path_bueno = "\\".join(path_parts[0:len(path_parts) - 2])
 
