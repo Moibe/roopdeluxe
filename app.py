@@ -16,8 +16,7 @@ def greet(input1, input2):
 
     path_video = input2
     path_parts = path_video.split("\\")
-    # Imprimimos todos los segmentos EXCEPTO el último
-      # Obtenemos todos los segmentos de la dirección separados por "\"
+    print("Imprimiendo path_parts: ", path_parts)
     path_bueno = "\\".join(path_parts[0:len(path_parts) - 2])
 
     print("Path bueno:")
