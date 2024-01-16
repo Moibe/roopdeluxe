@@ -70,12 +70,6 @@ def greet(input1, input2):
     path_foto = pathlib.Path(path_particular + "/temp/" + nom_video + "/")
     print("Éste es el path foto: ", path_foto)
 
-    for filename in os.listdir(path_foto):
-        if filename.endswith(".png"):
-            path = os.path.join(path_foto, filename)
-            image = Image.open(path)
-            images.append(image)
-
     print("Esto es la lista de imagenes: ", images)
     
     files = os.listdir(path_general)
@@ -135,6 +129,12 @@ def greet(input1, input2):
     files = os.listdir(path_general)
     print("Estos son los files que hay:")
     print(files)
+
+    for filename in os.listdir(path_foto):
+        if filename.endswith(".png"):
+            path = os.path.join(path_foto, filename)
+            image = Image.open(path)
+            images.append(image)
 
     if modo == "video":
         #Para video
