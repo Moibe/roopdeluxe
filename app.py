@@ -32,14 +32,6 @@ def greet(input1, input2):
 
     path_video = input2
 
-    #Mientras tanto voy a crear un archivo de texto genérico.
-    filename = "hola.txt"
-    text = "Hola Mundo"
-
-    path_archivo = create_text_file(filename, text)
-    
-    print("El path de mi archivo de texto es: ", path_archivo)
-
     if plataforma == "local":
         #Para local.
         path_parts = path_video.split("\\")
@@ -47,9 +39,18 @@ def greet(input1, input2):
         #Para HuggingFace
         print("La plataforma en la que basaremos la división es HuggingFace.")
         path_parts = path_video.split("/")
+        print("Esto es parth_paths, de aquí lo puedes obtener?: ", path_parts)
+        time.sleep(10)
     
     
     print("Imprimiendo path_parts: ", path_parts)
+
+    #Aquí obtendremos nom_video
+    filename = path_parts[-1]
+    nom_video = filename[:-4]
+    print("Esto es filename alias nom_video: ", nom_video)
+    time.sleep(5)
+
     path_particular = "/".join(path_parts[0:len(path_parts) - 1])
     path_general = "/".join(path_parts[0:len(path_parts) - 2])
 
@@ -61,8 +62,21 @@ def greet(input1, input2):
     print("Path general: ", path_particular)
 
     path = pathlib.Path("result.mp4")
-    path_foto = pathlib.Path(path_particular + "/temp/whitebeauty/0015.png")
+
+    #Creación de la galería:
+    images = []
+    
+    #nom_video = "whitebeauty"
+    path_foto = pathlib.Path(path_particular + "/temp/" + nom_video + "/")
     print("Éste es el path foto: ", path_foto)
+
+    for filename in os.listdir(path_foto):
+        if filename.endswith(".png"):
+            path = os.path.join(path_foto, filename)
+            image = Image.open(path)
+            images.append(image)
+
+    print("Esto es la lista de imagenes: ", images)
     
     files = os.listdir(path_general)
     print("Estos son los files que hay:")
@@ -124,12 +138,14 @@ def greet(input1, input2):
 
     if modo == "video":
         #Para video
-        return path, path_archivo
+        path = pathlib.Path("result.mp4")
+        print("Éste es el path para video:", path)
+        return path, images
     else:
         #Para imagen
         path = pathlib.Path("result.png")
         print("Éste es el path para imagen:", path)
-        return path, path_foto
+        return path, images
      
 #Así para imagenes
 # demo = gr.Interface(
@@ -138,7 +154,7 @@ def greet(input1, input2):
 
 #Así para video
 demo = gr.Interface(
-fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video(), gr.File()]
+fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video(), gr.Gallery()]
 )
 
 demo.launch()
