@@ -8,7 +8,7 @@ def greet(input1, input2):
 
     modo = "video"
     #local o huggingface
-    plataforma = "local"
+    plataforma = "huggingface"
     #face_swapper o face_enhancer o la combinación de ellos.
     procesador = "face_swapper"
     print("Inicio: Estamos en modo ", modo)
@@ -27,6 +27,7 @@ def greet(input1, input2):
         path_parts = path_video.split("\\")
     else:
         #Para HuggingFace
+        print("La plataforma en la que basaremos la división es HuggingFace.")
         path_parts = path_video.split("/")
     
     
