@@ -87,10 +87,12 @@ def greet(input1, input2):
     if modo == "video":
         #Para video
         path = pathlib.Path("result.mp4")
+        print("Éste es el path para video:", path)
         return path, path
     else:
         #Para imagen
         path = pathlib.Path("result.png")
+        print("Éste es el path para imagen:", path)
         return path, path
      
 #Así para imagenes
