@@ -4,6 +4,16 @@ import time
 import os
 import pathlib
 
+def create_text_file(filename, text):
+        
+        with open(filename, "w") as f:
+            f.write(text)
+
+            path_archivo = pathlib.Path(filename)
+
+            return path_archivo
+
+
 def greet(input1, input2):
 
     modo = "video"
@@ -23,11 +33,11 @@ def greet(input1, input2):
     path_video = input2
 
     #Mientras tanto voy a crear un archivo de texto genérico.
-    with open("hola.txt", "w") as f:
-        f.write("Hola Mundo")
+    filename = "hola.txt"
+    text = "Hola Mundo"
 
-        path_archivo = pathlib.Path("hola.txt")
-
+    path_archivo = create_text_file(filename, text)
+    
     print("El path de mi archivo de texto es: ", path_archivo)
 
     if plataforma == "local":
