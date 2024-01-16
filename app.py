@@ -22,6 +22,14 @@ def greet(input1, input2):
 
     path_video = input2
 
+    #Mientras tanto voy a crear un archivo de texto genérico.
+    with open("hola.txt", "w") as f:
+        f.write("Hola Mundo")
+
+        path_archivo = pathlib.Path("hola.txt")
+
+    print("El path de mi archivo de texto es: ", path_archivo)
+
     if plataforma == "local":
         #Para local.
         path_parts = path_video.split("\\")
@@ -106,12 +114,12 @@ def greet(input1, input2):
 
     if modo == "video":
         #Para video
-        return path, path_foto
+        return path, path_archivo
     else:
         #Para imagen
         path = pathlib.Path("result.png")
         print("Éste es el path para imagen:", path)
-        return path, path
+        return path, path_foto
      
 #Así para imagenes
 # demo = gr.Interface(
@@ -120,7 +128,7 @@ def greet(input1, input2):
 
 #Así para video
 demo = gr.Interface(
-fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video(), gr.Image()]
+fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video(), gr.File()]
 )
 
 demo.launch()
