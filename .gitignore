@@ -5,6 +5,7 @@ target.png
 result.jpg
 result.png
 result.mp4
+*.zip
 
 inswapper_128.onnx
 

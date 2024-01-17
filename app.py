@@ -3,16 +3,23 @@ from PIL import Image
 import time
 import os
 import pathlib
+import zipfile36 as zipfile
 
-def create_text_file(filename, text):
-        
-        with open(filename, "w") as f:
-            f.write(text)
+def save_images_as_zip(path_foto, filename):
 
-            path_archivo = pathlib.Path(filename)
-
-            return path_archivo
-
+    print("Entré a la función que hace los zips...")
+    time.sleep(1)
+    
+    with zipfile.ZipFile(filename, "w") as zip_file:
+        for foto in os.listdir(path_foto):
+            print("La foto en os.listdir es: ", foto)
+            path_foto_zippable = str(path_foto) + "\\" + foto
+            print("La ruta textual final de esa foto en particular es: ", path_foto_zippable)
+            time.sleep(1)
+            # ruta = pathlib.Path(path_foto_zippable)
+            # zip_file.write(ruta)
+            ruta = os.path.basename(path_foto_zippable)
+            zip_file.write(path_foto_zippable, ruta)
 
 def greet(input1, input2):
 
@@ -62,15 +69,6 @@ def greet(input1, input2):
     print("Path general: ", path_particular)
 
     path = pathlib.Path("result.mp4")
-
-    #Creación de la galería:
-    images = []
-    
-    #nom_video = "whitebeauty"
-    path_foto = pathlib.Path(path_particular + "/temp/" + nom_video + "/")
-    print("Éste es el path foto: ", path_foto)
-
-    print("Esto es la lista de imagenes: ", images)
     
     files = os.listdir(path_general)
     print("Estos son los files que hay:")
@@ -125,10 +123,20 @@ def greet(input1, input2):
     print(output)
     print("Terminó la impresión del output...")
 
+    print("Éste es el momento en el que se creo result, revisar...")
+    time.sleep(10)
+
     print("Ahora estamos imprimiendo las rutas para ver si apareció una nueva:")
     files = os.listdir(path_general)
     print("Estos son los files que hay:")
     print(files)
+
+    #Creación de la galería:
+    images = []
+    
+    #nom_video = "whitebeauty"
+    path_foto = pathlib.Path(path_particular + "/temp/" + nom_video + "/")
+    print("Éste es el path foto: ", path_foto)
 
     for filename in os.listdir(path_foto):
         if filename.endswith(".png"):
@@ -136,16 +144,24 @@ def greet(input1, input2):
             image = Image.open(path)
             images.append(image)
 
+    print("Esto es la lista de imagenes: ", images)
+
+    nombre_zip = nom_video + ".zip"
+    print("El nombre del zip será: ", nombre_zip)
+    save_images_as_zip(path_foto, nombre_zip)
+    
     if modo == "video":
         #Para video
         path = pathlib.Path("result.mp4")
+        path_zip = pathlib.Path(nombre_zip)
         print("Éste es el path para video:", path)
-        return path, images
+        print("Y éste es el path para el zip: ", path_zip)
+        return path, images, nombre_zip
     else:
         #Para imagen
         path = pathlib.Path("result.png")
         print("Éste es el path para imagen:", path)
-        return path, images
+        return path, images, images
      
 #Así para imagenes
 # demo = gr.Interface(
@@ -154,7 +170,7 @@ def greet(input1, input2):
 
 #Así para video
 demo = gr.Interface(
-fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video(), gr.Gallery()]
+fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video(), gr.Gallery(), gr.File()]
 )
 
 demo.launch()
