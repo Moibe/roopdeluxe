@@ -5,7 +5,7 @@ import os
 import pathlib
 import zipfile36 as zipfile
 
-def save_images_as_zip(path_foto, filename):
+def save_images_as_zip(path_foto, filename, plataforma):
 
     print("Entré a la función que hace los zips...")
     time.sleep(1)
@@ -13,7 +13,11 @@ def save_images_as_zip(path_foto, filename):
     with zipfile.ZipFile(filename, "w") as zip_file:
         for foto in os.listdir(path_foto):
             print("La foto en os.listdir es: ", foto)
-            path_foto_zippable = str(path_foto) + "\\" + foto
+            #Si Local
+            # path_foto_zippable = str(path_foto) + "\\" + foto
+            # #Si HuggingFace
+            # path_foto_zippable = str(path_foto) + "/" + foto
+            path_foto_zippable = str(path_foto) + (os.sep if plataforma == "local" else "/") + foto
             print("La ruta textual final de esa foto en particular es: ", path_foto_zippable)
             time.sleep(1)
             # ruta = pathlib.Path(path_foto_zippable)
@@ -148,7 +152,7 @@ def greet(input1, input2):
 
     nombre_zip = nom_video + ".zip"
     print("El nombre del zip será: ", nombre_zip)
-    save_images_as_zip(path_foto, nombre_zip)
+    save_images_as_zip(path_foto, nombre_zip, plataforma)
     
     if modo == "video":
         #Para video
