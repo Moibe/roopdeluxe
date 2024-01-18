@@ -140,6 +140,9 @@ def greet(input1, input2):
     #nom_video = "whitebeauty"
     path_foto = pathlib.Path(path_particular + "/temp/" + nom_video + "/")
     print("Éste es el path foto: ", path_foto)
+    path_result = path_foto + "temp.mp4"
+    print("Y éste es el path del resultado: ", path_result)
+    
 
     #Éste es el segmento que crea la galería de imagenes, que por el momento no usaremos por rendimiento.
     #Se reintegrará si agregamos interacción de poder borrar cada imagen desde la interfaz web.
