@@ -142,13 +142,16 @@ def greet(input1, input2):
     path_foto = pathlib.Path(path_particular + "/temp/" + nom_video + "/")
     print("Éste es el path foto: ", path_foto)
 
-    for filename in os.listdir(path_foto):
-        if filename.endswith(".png"):
-            path = os.path.join(path_foto, filename)
-            image = Image.open(path)
-            images.append(image)
+    #Éste es el segmento que crea la galería de imagenes, que por el momento no usaremos por rendimiento.
+    #Se reintegrará si agregamos interacción de poder borrar cada imagen desde la interfaz web.
+    
+    # for filename in os.listdir(path_foto):
+    #     if filename.endswith(".png"):
+    #         path = os.path.join(path_foto, filename)
+    #         image = Image.open(path)
+    #         images.append(image)
 
-    print("Esto es la lista de imagenes: ", images)
+    # print("Esto es la lista de imagenes: ", images)
 
     nombre_zip = nom_video + ".zip"
     print("El nombre del zip será: ", nombre_zip)
@@ -157,24 +160,34 @@ def greet(input1, input2):
     if modo == "video":
         #Para video
         path = pathlib.Path("result.mp4")
+        path_abs = os.path.abspath(path)
         path_zip = pathlib.Path(nombre_zip)
+        path_zip_abs =  os.path.abspath(path_zip)
         print("Éste es el path para video:", path)
+        print("Y su ruta absoluta es: ", path_abs)
         print("Y éste es el path para el zip: ", path_zip)
-        return path, images, nombre_zip
+        print("Y su ruta absoluta es: ", path_zip_abs)
+        return path, nombre_zip
     else:
         #Para imagen
         path = pathlib.Path("result.png")
         print("Éste es el path para imagen:", path)
         return path, images, images
+    
+    print("Listo! Gracias!")
      
 #Así para imagenes
 # demo = gr.Interface(
 # fn=greet, inputs=[gr.Image(), gr.Image()], outputs=[gr.Image(), gr.Image()]
 # )
 
-#Así para video
+#Así para video y 3 outputs: Video, Galería y Archivo Zip.
+# demo = gr.Interface(
+# fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video(), gr.Gallery(), gr.File()]
+# )
+    
 demo = gr.Interface(
-fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video(), gr.Gallery(), gr.File()]
+fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video(), gr.File()]
 )
 
 demo.launch()
