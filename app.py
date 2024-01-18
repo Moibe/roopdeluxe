@@ -18,7 +18,6 @@ def save_images_as_zip(path_foto, filename, plataforma):
             # path_foto_zippable = str(path_foto) + "/" + foto
             path_foto_zippable = str(path_foto) + (os.sep if plataforma == "local" else "/") + foto
             print("La ruta textual final de esa foto en particular es: ", path_foto_zippable)
-            time.sleep(1)
             # ruta = pathlib.Path(path_foto_zippable)
             # zip_file.write(ruta)
             ruta = os.path.basename(path_foto_zippable)
@@ -50,7 +49,7 @@ def greet(input1, input2):
         print("La plataforma en la que basaremos la división es HuggingFace.")
         path_parts = path_video.split("/")
         print("Esto es parth_paths, de aquí lo puedes obtener?: ", path_parts)
-        time.sleep(10)
+        time.sleep(1)
     
     
     print("Imprimiendo path_parts: ", path_parts)
@@ -122,12 +121,12 @@ def greet(input1, input2):
     output = proc.read()
 
     print("Output (resultado de la ejecución del código):")
-    time.sleep(2)
+    time.sleep(1)
     print(output)
     print("Terminó la impresión del output...")
 
     print("Éste es el momento en el que se creo result, revisar...")
-    time.sleep(10)
+    time.sleep(1)
 
     print("Ahora estamos imprimiendo las rutas para ver si apareció una nueva:")
     files = os.listdir(path_general)
@@ -140,7 +139,7 @@ def greet(input1, input2):
     #nom_video = "whitebeauty"
     path_foto = pathlib.Path(path_particular + "/temp/" + nom_video + "/")
     print("Éste es el path foto: ", path_foto)
-    path_result = str(path_foto) + "temp.mp4"
+    path_result = str(path_foto) + "/temp.mp4"
     print("Y éste es el path del resultado: ", path_result)
     
 
