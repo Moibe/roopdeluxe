@@ -115,7 +115,7 @@ def greet(input1, input2):
     print("source_path: ", source_path)
     print("target_path: ", target_path)
 
-    command = f"python run.py -s {source_path}  -t {target_path} -o {result_path} --frame-processor {procesador}"
+    command = f"python run.py -s {source_path}  -t {target_path} -o {result_path} --frame-processor {procesador} --execution-provider cuda"
     print(command)
     time.sleep(1)
     proc = os.popen(command)
