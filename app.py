@@ -140,7 +140,7 @@ def greet(input1, input2):
     #nom_video = "whitebeauty"
     path_foto = pathlib.Path(path_particular + "/temp/" + nom_video + "/")
     print("Éste es el path foto: ", path_foto)
-    path_result = path_foto + "temp.mp4"
+    path_result = str(path_foto) + "temp.mp4"
     print("Y éste es el path del resultado: ", path_result)
     
 
