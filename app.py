@@ -154,7 +154,13 @@ def greet(input1, input2):
 
     nombre_zip = nom_video + ".zip"
     print("El nombre del zip será: ", nombre_zip)
-    save_images_as_zip(path_foto, nombre_zip, plataforma)
+
+    try:
+        save_images_as_zip(path_foto, nombre_zip, plataforma)
+
+    except Exception as e:
+        # código que se ejecutará si se produce la excepción
+        print(e)
     
     if modo == "video":
         #Para video
