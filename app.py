@@ -8,8 +8,7 @@ import zipfile36 as zipfile
 def save_images_as_zip(path_foto, filename, plataforma):
 
     print("Entré a la función que hace los zips...")
-    time.sleep(1)
-    
+        
     with zipfile.ZipFile(filename, "w") as zip_file:
         for foto in os.listdir(path_foto):
             print("La foto en os.listdir es: ", foto)
@@ -60,7 +59,7 @@ def greet(input1, input2):
     filename = path_parts[-1]
     nom_video = filename[:-4]
     print("Esto es filename alias nom_video: ", nom_video)
-    time.sleep(5)
+    time.sleep(1)
 
     path_particular = "/".join(path_parts[0:len(path_parts) - 1])
     path_general = "/".join(path_parts[0:len(path_parts) - 2])
@@ -78,7 +77,7 @@ def greet(input1, input2):
     print("Estos son los files que hay:")
     print(files)
 
-    time.sleep(5)
+    time.sleep(1)
 
     ext_imagen = "png"
     ext_video = "mp4"
