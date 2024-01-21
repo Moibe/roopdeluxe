@@ -48,11 +48,6 @@ def greet(input1, input2):
         #Para HuggingFace
         print("La plataforma en la que basaremos la división es HuggingFace.")
         path_parts = path_video.split("/")
-        print("Esto es parth_paths, de aquí lo puedes obtener?: ", path_parts)
-        time.sleep(1)
-    
-    
-    print("Imprimiendo path_parts: ", path_parts)
 
     #Aquí obtendremos nom_video
     filename = path_parts[-1]
@@ -62,7 +57,6 @@ def greet(input1, input2):
 
     path_particular = "/".join(path_parts[0:len(path_parts) - 1])
     path_general = "/".join(path_parts[0:len(path_parts) - 2])
-
     
     path_general = path_general.replace("\\", "/")
     path_particular = path_particular.replace("\\", "/")
@@ -75,8 +69,6 @@ def greet(input1, input2):
     files = os.listdir(path_general)
     print("Estos son los files que hay:")
     print(files)
-
-    time.sleep(1)
 
     ext_imagen = "png"
     ext_video = "mp4"
@@ -141,8 +133,7 @@ def greet(input1, input2):
     print("Éste es el path foto: ", path_foto)
     path_result = str(path_foto) + "/temp.mp4"
     print("Y éste es el path del resultado: ", path_result)
-    
-
+ 
     #Éste es el segmento que crea la galería de imagenes, que por el momento no usaremos por rendimiento.
     #Se reintegrará si agregamos interacción de poder borrar cada imagen desde la interfaz web.
     
@@ -180,7 +171,6 @@ def greet(input1, input2):
         path = pathlib.Path("result.png")
         print("Éste es el path para imagen:", path)
         return path, images, images
-    
     print("Listo! Gracias!")
      
 #Así para imagenes
