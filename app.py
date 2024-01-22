@@ -145,11 +145,12 @@ def greet(input1, input2):
 
     # print("Esto es la lista de imagenes: ", images)
 
-    nombre_zip = nom_video + ".zip"
-    print("El nombre del zip será: ", nombre_zip)
+    #nombre_zip = nom_video + ".zip"
+    #print("El nombre del zip será: ", nombre_zip)
 
     try:
-        save_images_as_zip(path_foto, nombre_zip, plataforma)
+        #save_images_as_zip(path_foto, nombre_zip, plataforma)
+        print("Ésta vez no crearemos archivo zip.")
 
     except Exception as e:
         # código que se ejecutará si se produce la excepción
@@ -159,13 +160,13 @@ def greet(input1, input2):
         #Para video
         path = pathlib.Path("result.mp4")
         path_abs = os.path.abspath(path)
-        path_zip = pathlib.Path(nombre_zip)
-        path_zip_abs =  os.path.abspath(path_zip)
         print("Éste es el path para video:", path)
         print("Y su ruta absoluta es: ", path_abs)
-        print("Y éste es el path para el zip: ", path_zip)
-        print("Y su ruta absoluta es: ", path_zip_abs)
-        return path, nombre_zip
+        #path_zip = pathlib.Path(nombre_zip)
+        #path_zip_abs =  os.path.abspath(path_zip)
+        #print("Y éste es el path para el zip: ", path_zip)
+        #print("Y su ruta absoluta es: ", path_zip_abs)
+        return path
     else:
         #Para imagen
         path = pathlib.Path("result.png")
@@ -182,9 +183,14 @@ def greet(input1, input2):
 # demo = gr.Interface(
 # fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video(), gr.Gallery(), gr.File()]
 # )
-    
-demo = gr.Interface(
-fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video(), gr.File()]
-)
 
+#Así para 2 outputs, video y zip.
+# demo = gr.Interface(
+# fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video(), gr.File()]
+# )
+
+#1 output: video.
+demo = gr.Interface(
+fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video()]
+)
 demo.launch()
