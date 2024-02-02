@@ -29,8 +29,8 @@ def greet(input1, input2):
     #local o huggingface
     plataforma = "huggingface"
     #face_swapper o face_enhancer o la combinación de ellos.
-    #procesador = "face_swapper"
-    procesador = "face_enhancer"
+    procesador = "face_swapper"
+    #procesador = "face_enhancer"
     print("Inicio: Estamos en modo ", modo)
     print("Estamos en la plataforma:", plataforma)
     print("El procesador es: ", procesador)
