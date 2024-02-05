@@ -23,22 +23,37 @@ def save_images_as_zip(path_foto, filename, plataforma):
             ruta = os.path.basename(path_foto_zippable)
             zip_file.write(path_foto_zippable, ruta)
 
-def greet(input1, input2):
+def perform(input1, input2, input3):
 
     modo = "video"
     #local o huggingface
     plataforma = "huggingface"
+
     #face_swapper o face_enhancer o la combinación de ellos.
+    #El default, por si el usuario no eligiera nada, es:
     procesador = "face_swapper"
-    #procesador = "face_enhancer"
+    print("Por ahora el procesador es:", procesador)
+
+    print("Esto fue el input 3 recibido...:", input3)
+    time.sleep(3)
+
+    longitud = len(input3)
+
+    print(f"El arreglo tiene {longitud} elementos")
+    time.sleep(3)
+
+    if longitud == 2:
+        procesador = "face_swapper face_enhancer"
+    elif longitud == 0:
+        print("La longitud si da 0")        
+    else:
+        procesador = input3[0]
+
+    print("El procesador seleccionado terminó siendo...", procesador)
+    
     print("Inicio: Estamos en modo ", modo)
     print("Estamos en la plataforma:", plataforma)
     print("El procesador es: ", procesador)
-
-    print("Input1:")
-    print(input1)
-    print("Input2:")
-    print(input2)
 
     path_video = input2
 
@@ -192,6 +207,6 @@ def greet(input1, input2):
 
 #1 output: video.
 demo = gr.Interface(
-fn=greet, inputs=[gr.Image(), gr.Video()], outputs=[gr.Video()]
+fn=perform, inputs=[gr.Image(), gr.Video(), gr.CheckboxGroup(["face_swapper","face_enhancer"], label="Processor")], outputs=[gr.Video()]
 )
 demo.launch()
