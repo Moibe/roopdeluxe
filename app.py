@@ -25,7 +25,8 @@ def save_images_as_zip(path_foto, filename, plataforma):
 
 def perform(input1, input2, input3):
 
-    modo = "video"
+    #video o cualquier otro sería para imagenes.
+    modo = "pic"
     #local o huggingface
     plataforma = "huggingface"
 
@@ -38,9 +39,6 @@ def perform(input1, input2, input3):
     time.sleep(3)
 
     longitud = len(input3)
-
-    print(f"El arreglo tiene {longitud} elementos")
-    time.sleep(3)
 
     if longitud == 2:
         procesador = "face_swapper face_enhancer"
