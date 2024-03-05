@@ -7,8 +7,6 @@ import zipfile36 as zipfile
 
 def save_images_as_zip(path_foto, filename, plataforma):
 
-    print("Entré a la función que hace los zips...")
-        
     with zipfile.ZipFile(filename, "w") as zip_file:
         for foto in os.listdir(path_foto):
             print("La foto en os.listdir es: ", foto)
@@ -204,8 +202,8 @@ fn=perform, inputs=[gr.Image(), gr.Image()], outputs=[gr.Image(), gr.Image()]
 # )
 
 #1 output: video.
-demo = gr.Interface(
-fn=perform, inputs=[gr.Image(), gr.Video(), gr.CheckboxGroup(["face_swapper","face_enhancer"], label="Processor")], outputs=[gr.Video()]
-)
+# demo = gr.Interface(
+# fn=perform, inputs=[gr.Image(), gr.Video(), gr.CheckboxGroup(["face_swapper","face_enhancer"], label="Processor")], outputs=[gr.Video()]
+# )
 
 demo.launch()
