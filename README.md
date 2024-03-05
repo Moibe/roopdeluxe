@@ -1,5 +1,5 @@
 ---
-title: Demo
+title: Video
 emoji: 📹
 colorFrom: blue
 colorTo: yellow
