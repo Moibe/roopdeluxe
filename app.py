@@ -188,7 +188,7 @@ def perform(input1, input2, input3):
      
 #Así para imagenes
 demo = gr.Interface(
-fn=perform, inputs=[gr.Image(), gr.Image()], outputs=[gr.Image(), gr.Image()]
+fn=perform, inputs=[gr.Image(), gr.Image(), gr.CheckboxGroup(["face_swapper","face_enhancer"], label="Processor")], outputs=[gr.Image(), gr.Image()]
 )
 
 #Así para video y 3 outputs: Video, Galería y Archivo Zip.
