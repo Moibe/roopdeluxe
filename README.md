@@ -1,7 +1,7 @@
 ---
-title: Video
-emoji: 📹
-colorFrom: blue
+title: Roop Deluxe
+emoji: 📷♻️📷
+colorFrom: pink
 colorTo: yellow
 sdk: gradio
 sdk_version: 4.3.0

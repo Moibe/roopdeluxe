@@ -94,7 +94,7 @@ def perform(input1, input2, input3):
         print("Se asigno la extensión de video:", ext_video)
         extension = ext_video
     else:
-        print("Se asigno la extensión de video:", ext_video)
+        print("Se asigno la extensión de imagen:", ext_imagen)
         extension = ext_imagen
 
     #El source siempre es una imagen.
