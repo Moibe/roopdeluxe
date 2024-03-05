@@ -71,14 +71,14 @@ def perform(input1, input2, input3):
     #print("Esto es filename alias nom_video: ", nom_video)
     #path_particular = "/".join(path_parts[0:len(path_parts) - 1])
     #path_general = "/".join(path_parts[0:len(path_parts) - 2])
-    path_general = path_general.replace("\\", "/")
-    path_particular = path_particular.replace("\\", "/")
-    print("Path general: ", path_general)
-    print("Path general: ", path_particular)
-    path = pathlib.Path("result.mp4")
-    files = os.listdir(path_general)
-    print("Estos son los files que hay:")
-    print(files)
+    #path_general = path_general.replace("\\", "/")
+    #path_particular = path_particular.replace("\\", "/")
+    #print("Path general: ", path_general)
+    #print("Path general: ", path_particular)
+    #path = pathlib.Path("result.mp4")
+    #files = os.listdir(path_general)
+    #print("Estos son los files que hay:")
+    #print(files)
     ext_imagen = "png"
     ext_video = "mp4"
 
@@ -130,18 +130,17 @@ def perform(input1, input2, input3):
     time.sleep(1)
 
     print("Ahora estamos imprimiendo las rutas para ver si apareció una nueva:")
-    files = os.listdir(path_general)
-    print("Estos son los files que hay:")
-    print(files)
+    #files = os.listdir(path_general)
+    #print("Estos son los files que hay:")
+    #print(files)
 
     #Creación de la galería:
     images = []
     
-    #nom_video = "whitebeauty"
-    path_foto = pathlib.Path(path_particular + "/temp/" + nom_video + "/")
-    print("Éste es el path foto: ", path_foto)
-    path_result = str(path_foto) + "/temp.mp4"
-    print("Y éste es el path del resultado: ", path_result)
+    #path_foto = pathlib.Path(path_particular + "/temp/" + nom_video + "/")
+    #print("Éste es el path foto: ", path_foto)
+    #path_result = str(path_foto) + "/temp.mp4"
+    #print("Y éste es el path del resultado: ", path_result)
  
     #Éste es el segmento que crea la galería de imagenes, que por el momento no usaremos por rendimiento.
     #Se reintegrará si agregamos interacción de poder borrar cada imagen desde la interfaz web.
