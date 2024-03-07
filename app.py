@@ -129,10 +129,10 @@ def perform(input1, input2, input3):
     print("Éste es el momento en el que se creo result, revisar...")
     time.sleep(1)
 
-    print("Ahora estamos imprimiendo las rutas para ver si apareció una nueva:")
-    files = os.listdir(path_general)
-    print("Estos son los files que hay:")
-    print(files)
+    # print("Ahora estamos imprimiendo las rutas para ver si apareció una nueva:")
+    # files = os.listdir(path_general)
+    # print("Estos son los files que hay:")
+    # print(files)
 
     #Creación de la galería:
     #images = []
