@@ -130,12 +130,12 @@ def perform(input1, input2, input3):
     time.sleep(1)
 
     print("Ahora estamos imprimiendo las rutas para ver si apareció una nueva:")
-    #files = os.listdir(path_general)
-    #print("Estos son los files que hay:")
-    #print(files)
+    files = os.listdir(path_general)
+    print("Estos son los files que hay:")
+    print(files)
 
     #Creación de la galería:
-    images = []
+    #images = []
     
     #path_foto = pathlib.Path(path_particular + "/temp/" + nom_video + "/")
     #print("Éste es el path foto: ", path_foto)
@@ -179,7 +179,7 @@ def perform(input1, input2, input3):
         #Para imagen
         path = pathlib.Path("result.png")
         print("Éste es el path para imagen:", path)
-        return path, images, images
+        return path
     print("Listo! Gracias!")
      
 #Así para imagenes
