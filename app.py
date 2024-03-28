@@ -58,7 +58,7 @@ def perform(input1, input2, input3):
     if plataforma == "local":
         #Para local.
         path_parts = path_video.split("\\")
-    #else:
+    else:
         #Para HuggingFace
         #Creo que no va en imagen.
         print("La plataforma en la que basaremos la división es HuggingFace.")
