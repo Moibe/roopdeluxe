@@ -62,7 +62,7 @@ def perform(input1, input2, input3):
         #Para HuggingFace
         #Creo que no va en imagen.
         print("La plataforma en la que basaremos la división es HuggingFace.")
-        path_parts = path_video.split("/")
+        #path_parts = path_video.split("/")
 
     #Aquí obtendremos nom_video
     #Creo no va en imagen
