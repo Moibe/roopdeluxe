@@ -80,8 +80,9 @@ def perform(input1, input2, input3):
             path = pathlib.Path("result.mp4")
             files = os.listdir(path_general)
         
-    print("Estos son los files que hay:")
-    print(files)
+            print("Estos son los files que hay:")
+            print(files)
+            
     ext_imagen = "png"
     ext_video = "mp4"
 
