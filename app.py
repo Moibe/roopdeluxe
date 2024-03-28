@@ -66,19 +66,19 @@ def perform(input1, input2, input3):
 
     #Aquí obtendremos nom_video
     #Creo no va en imagen
-    #filename = path_parts[-1]
-    #nom_video = filename[:-4]
-    #print("Esto es filename alias nom_video: ", nom_video)
-    #path_particular = "/".join(path_parts[0:len(path_parts) - 1])
-    #path_general = "/".join(path_parts[0:len(path_parts) - 2])
-    #path_general = path_general.replace("\\", "/")
-    #path_particular = path_particular.replace("\\", "/")
-    #print("Path general: ", path_general)
-    #print("Path general: ", path_particular)
-    #path = pathlib.Path("result.mp4")
-    #files = os.listdir(path_general)
-    #print("Estos son los files que hay:")
-    #print(files)
+    filename = path_parts[-1]
+    nom_video = filename[:-4]
+    print("Esto es filename alias nom_video: ", nom_video)
+    path_particular = "/".join(path_parts[0:len(path_parts) - 1])
+    path_general = "/".join(path_parts[0:len(path_parts) - 2])
+    path_general = path_general.replace("\\", "/")
+    path_particular = path_particular.replace("\\", "/")
+    print("Path general: ", path_general)
+    print("Path general: ", path_particular)
+    path = pathlib.Path("result.mp4")
+    files = os.listdir(path_general)
+    print("Estos son los files que hay:")
+    print(files)
     ext_imagen = "png"
     ext_video = "mp4"
 
@@ -129,10 +129,10 @@ def perform(input1, input2, input3):
     print("Éste es el momento en el que se creo result, revisar...")
     time.sleep(1)
 
-    # print("Ahora estamos imprimiendo las rutas para ver si apareció una nueva:")
-    # files = os.listdir(path_general)
-    # print("Estos son los files que hay:")
-    # print(files)
+    print("Ahora estamos imprimiendo las rutas para ver si apareció una nueva:")
+    files = os.listdir(path_general)
+    print("Estos son los files que hay:")
+    print(files)
 
     #Creación de la galería:
     #images = []
