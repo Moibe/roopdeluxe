@@ -55,32 +55,35 @@ def perform(input1, input2, input3):
     print("Path_video es:", path_video)
     time.sleep(5)
 
-    if plataforma == "local":
-        #Para local.
-        path_parts = path_video.split("\\")
-    else:
-        #Para HuggingFace
-        #Creo que no va en imagen.
-        print("La plataforma en la que basaremos la división es HuggingFace.")
-        #path_parts = path_video.split("/")
+    if modo == "video":
+    
+        if plataforma == "local":
+            #Para local.
+            path_parts = path_video.split("\\")
+        else:
+            #Para HuggingFace
+            #Creo que no va en imagen.
+            print("La plataforma en la que basaremos la división es HuggingFace.")
+            path_parts = path_video.split("/")
 
-    #Aquí obtendremos nom_video
-    #Creo no va en imagen
-    filename = path_parts[-1]
-    nom_video = filename[:-4]
-    print("Esto es filename alias nom_video: ", nom_video)
-    path_particular = "/".join(path_parts[0:len(path_parts) - 1])
-    path_general = "/".join(path_parts[0:len(path_parts) - 2])
-    path_general = path_general.replace("\\", "/")
-    path_particular = path_particular.replace("\\", "/")
-    print("Path general: ", path_general)
-    print("Path general: ", path_particular)
-    path = pathlib.Path("result.mp4")
-    files = os.listdir(path_general)
-    print("Estos son los files que hay:")
-    print(files)
-    ext_imagen = "png"
-    ext_video = "mp4"
+            #Aquí obtendremos nom_video
+            #Creo no va en imagen
+            filename = path_parts[-1]
+            nom_video = filename[:-4]
+            print("Esto es filename alias nom_video: ", nom_video)
+            path_particular = "/".join(path_parts[0:len(path_parts) - 1])
+            path_general = "/".join(path_parts[0:len(path_parts) - 2])
+            path_general = path_general.replace("\\", "/")
+            path_particular = path_particular.replace("\\", "/")
+            print("Path general: ", path_general)
+            print("Path general: ", path_particular)
+            path = pathlib.Path("result.mp4")
+            files = os.listdir(path_general)
+        
+        print("Estos son los files que hay:")
+        print(files)
+        ext_imagen = "png"
+        ext_video = "mp4"
 
     #Selector de modo.
     if modo == "video": 
